@@ -1,0 +1,61 @@
+[package]
+authors = ["Bilal Elmoussaoui <bil.elmoussaoui@gmail.com>"]
+edition = "2021"
+name = "sourceview5"
+version = "0.7.0"
+readme = "./../README.md"
+license-file = "./../LICENSE"
+homepage = "https://world.pages.gitlab.gnome.org/Rust/sourceview5-rs/"
+documentation = "https://world.pages.gitlab.gnome.org/Rust/sourceview5-rs/stable/latest/docs/sourceview5"
+repository = "https://gitlab.gnome.org/World/Rust/sourceview5-rs/"
+categories = ["api-bindings", "gui"]
+keywords = ["gtk4-rs", "gnome", "sourceview", "ffi", "GUI"]
+description = "Rust bindings for GtkSourceView 5"
+
+[features]
+default = []
+gtk_v4_6 = ["gtk/v4_6", "pango/v1_50"]
+dox = ["gtk/dox", "pango/dox"]
+v5_2 = ["ffi/v5_2"]
+v5_4 = ["v5_2", "ffi/v5_4", "gtk_v4_6"]
+v5_6 = ["v5_4", "ffi/v5_6"]
+
+[package.metadata.docs.rs]
+features = ["dox"]
+
+[dependencies]
+bitflags = "1.2"
+libc = "0.2"
+futures-core = { version = "0.3", default-features = false }
+futures-channel = "0.3"
+
+[dependencies.gtk]
+git = "https://github.com/gtk-rs/gtk4-rs.git"
+package = "gtk4"
+version = "0.7"
+
+[dependencies.gdk]
+git = "https://github.com/gtk-rs/gtk4-rs.git"
+package = "gdk4"
+version = "0.7"
+
+[dependencies.glib]
+git = "https://github.com/gtk-rs/gtk-rs-core.git"
+version = "0.18"
+
+[dependencies.pango]
+git = "https://github.com/gtk-rs/gtk-rs-core.git"
+version = "0.18"
+
+[dependencies.gdk-pixbuf]
+git = "https://github.com/gtk-rs/gtk-rs-core.git"
+version = "0.18"
+
+[dependencies.gio]
+git = "https://github.com/gtk-rs/gtk-rs-core.git"
+version = "0.18"
+
+[dependencies.ffi]
+package = "sourceview5-sys"
+path = "./sys"
+version = "0.7"

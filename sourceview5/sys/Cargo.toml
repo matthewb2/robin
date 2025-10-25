@@ -1,0 +1,83 @@
+[package]
+authors = ["Bilal Elmoussaoui <bil.elmoussaoui@gmail.com>"]
+build = "build.rs"
+edition = "2021"
+name = "sourceview5-sys"
+version = "0.7.0"
+license = "MIT"
+homepage = "https://world.pages.gitlab.gnome.org/Rust/sourceview5-rs/"
+categories = ["api-bindings", "gui"]
+keywords = ["gtk4-rs", "gnome", "sourceview", "ffi", "GUI"]
+description = "FFI bindings for GtkSourceView 5"
+documentation = "https://world.pages.gitlab.gnome.org/Rust/sourceview5-rs/stable/latest/docs/sourceview5_sys"
+repository = "https://gitlab.gnome.org/World/Rust/sourceview5-rs/"
+
+[package.metadata.system-deps.gtksourceview_5]
+name = "gtksourceview-5"
+version = "4.90"
+
+[package.metadata.system-deps.gtksourceview_5.v5_0]
+version = "4.90"
+
+[package.metadata.system-deps.gtksourceview_5.v5_2]
+version = "5.2"
+
+[package.metadata.system-deps.gtksourceview_5.v5_4]
+version = "5.4"
+
+[package.metadata.system-deps.gtksourceview_5.v5_6]
+version = "5.6"
+
+[package.metadata.docs.rs]
+features = ["dox"]
+
+[dependencies]
+libc = "0.2"
+
+[dependencies.glib]
+package = "glib-sys"
+git = "https://github.com/gtk-rs/gtk-rs-core.git"
+version = "0.18"
+
+[dependencies.pango]
+package = "pango-sys"
+git = "https://github.com/gtk-rs/gtk-rs-core.git"
+version = "0.18"
+
+[dependencies.gio]
+package = "gio-sys"
+git = "https://github.com/gtk-rs/gtk-rs-core.git"
+version = "0.18"
+
+[dependencies.gdk_pixbuf]
+package = "gdk-pixbuf-sys"
+git = "https://github.com/gtk-rs/gtk-rs-core.git"
+version = "0.18"
+
+[dependencies.gobject]
+package = "gobject-sys"
+git = "https://github.com/gtk-rs/gtk-rs-core.git"
+version = "0.18"
+
+[dependencies.gtk]
+package = "gtk4-sys"
+git = "https://github.com/gtk-rs/gtk4-rs.git"
+version = "0.7"
+
+[dependencies.gdk]
+package = "gdk4-sys"
+git = "https://github.com/gtk-rs/gtk4-rs.git"
+version = "0.7"
+
+[build-dependencies]
+system-deps = "6"
+
+[dev-dependencies]
+shell-words = "1.0.0"
+tempfile = "3"
+
+[features]
+dox = ["glib/dox", "gobject/dox", "gdk/dox", "gdk_pixbuf/dox", "gio/dox", "gtk/dox", "pango/dox"]
+v5_2 = []
+v5_4 = ["v5_2"]
+v5_6 = ["v5_4"]
